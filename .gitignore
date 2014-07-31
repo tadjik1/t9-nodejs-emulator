@@ -1,0 +1,15 @@
+# System files
+.DS_Store
+*.log
+
+# WebStorm user-specific project files
+.sass-cache/
+js/external
+# js/core // пока разрабатываем
+.idea/**
+
+# Project files
+node_modules
+build/**
+*.css
+test/**
