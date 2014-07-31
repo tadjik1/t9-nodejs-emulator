@@ -11,5 +11,4 @@ js/external
 # Project files
 node_modules
 build/**
-*.css
 test/**
