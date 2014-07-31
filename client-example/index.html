@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T9 Predictive Text Input Emulator</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" type="text/css"/>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="emulator">
+                <div class="screen">
+                    <span class="prev-text"></span><span class="current-text"></span><span class="cursor">|</span>
+                </div>
+
+                <div class="controller">
+                    <button class="prediction-cycle btn btn-primary"><span class="glyphicon glyphicon-refresh"></span>
+                        cycle
+                    </button>
+                    <button class="lang btn btn-primary">
+                        lang:en
+                    </button>
+                    <button class="delete  btn btn-primary"><span
+                            class="glyphicon glyphicon-circle-arrow-left"></span> delete
+                    </button>
+                </div>
+
+                <div class="keypad en">
+                    <button class="key key-1" disabled="disabled" value="1">
+                        1
+                    </button>
+                    <button class="key key-2" value="2">
+                        2
+                        <small>abc</small>
+                    </button>
+                    <button class="key key-3" value="3">
+                        3
+                        <small>def</small>
+                    </button>
+                    <button class="key key-4" value="4">
+                        4
+                        <small>ghi</small>
+                    </button>
+                    <button class="key key-5" value="5">
+                        5
+                        <small>jkl</small>
+                    </button>
+                    <button class="key key-6" value="6">
+                        6
+                        <small>mno</small>
+                    </button>
+                    <button class="key key-7" value="7">
+                        7
+                        <small>pqrs</small>
+                    </button>
+                    <button class="key key-8" value="8">
+                        8
+                        <small>tuv</small>
+                    </button>
+                    <button class="key key-9" value="9">
+                        9
+                        <small>wxyz</small>
+                    </button>
+                    <button class="key key-star" disabled="disabled" value="symbol">
+                        * #
+                    </button>
+                    <button class="key key-0" disabled="disabled" value="0">
+                        0
+                    </button>
+                    <button class="key key-space" value="space">
+                        <small>space</small>
+                    </button>
+                </div>
+
+                <div class="keypad ru" style="display: none;">
+                    <button class="key key-1" disabled="disabled" value="1">
+                        1
+                    </button>
+                    <button class="key key-2" value="2">
+                        2
+                        <small>абвг</small>
+                    </button>
+                    <button class="key key-3" value="3">
+                        3
+                        <small>дежз</small>
+                    </button>
+                    <button class="key key-4" value="4">
+                        4
+                        <small>ийкл</small>
+                    </button>
+                    <button class="key key-5" value="5">
+                        5
+                        <small>мноп</small>
+                    </button>
+                    <button class="key key-6" value="6">
+                        6
+                        <small>рсту</small>
+                    </button>
+                    <button class="key key-7" value="7">
+                        7
+                        <small>фхцч</small>
+                    </button>
+                    <button class="key key-8" value="8">
+                        8
+                        <small>шщъы</small>
+                    </button>
+                    <button class="key key-9" value="9">
+                        9
+                        <small>ьэюя</small>
+                    </button>
+                    <button class="key key-star" disabled="disabled" value="symbol">
+                        * #
+                    </button>
+                    <button class="key key-0" disabled="disabled" value="0">
+                        0
+                    </button>
+                    <button class="key key-space" value="space">
+                        <small>пробел</small>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/socket.io-client/socket.io.js"></script>
+
+<script src="js/main.js"></script>
+</body>
+
+</html>
