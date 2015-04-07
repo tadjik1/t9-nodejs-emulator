@@ -48,7 +48,7 @@ $(function () {
         if(isNaN(parseInt(value)))
             return;
 
-        currentWord += value;
+        currentWord += '' + value;
         num = value;
 
         getWords(currentWord);
@@ -75,6 +75,8 @@ $(function () {
     });
 
     $('.controller .delete').on('click', function(event){
+        console.log(currentWord);
+
         if(currentWord == ''){
             var previousText = $('.prev-text').text();
             previousText = previousText.slice(0, previousText.length-1);
@@ -83,6 +85,10 @@ $(function () {
         }
 
         currentWord = currentWord.slice(0, currentWord.length-1);
+        if (currentWord === '') {
+            $('.current-text').text('');
+            return;
+        }
         getWords(currentWord);
 
     });

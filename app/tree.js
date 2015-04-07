@@ -86,30 +86,37 @@ mainTree.findWords = function (query, lang) {
 mainTree._findWords = function (sequence, tree, lang, words, currentWord, depth) {
     var current = tree;
 
+    sequence = sequence.toString();
     words = words || [];
     currentWord = currentWord || '';
     depth = depth || 0;
 
-    if (depth === sequence.length) {
-        words.push(currentWord);
-    } else {
-        var letters = mainTree[lang].keyMap[sequence.charAt(depth)].split('');
+    var letters = mainTree[lang].keyMap[sequence[depth]].split('');
 
-        for (var i = 0; i < letters.length; i++) {
-            var word = currentWord;
-            var value = current[letters[i]];
+    letters.forEach(function (letter) {
+        var word = currentWord;
+        var value = current[letter];
 
-            word += letters[i];
+        if (value === undefined) return;
 
-            if (typeof value === 'number' && word.length === sequence.length) {
+        word += letter;
+
+        if (sequence.length === word.length) {
+            // if we have full word for this set unshift it for better user experience
+            if ((typeof value === 'object' && value['$'] !== undefined) || typeof value === 'number') {
                 words.unshift(word);
+            } else {
+                // else just push part of word
+                words.push(word);
             }
-
-            if (typeof value === 'object') {
-                mainTree._findWords(sequence, value, lang, words, word, depth + 1);
-            }
+            return;
         }
-    }
+
+        // else go deeper!
+        if (typeof value === 'object') {
+            mainTree._findWords(sequence, value, lang, words, word, depth + 1);
+        }
+    });
 
     return words;
 };
